@@ -16,28 +16,69 @@ This repository contains a collection of Python scripts for emotional analysis a
 
 This repository contains the code for the research project titled "Dare to Fly? Analyzing Psychological Reactions and Travel Attitudes of Chinese Social Media Users Post-Aviation Accidents through Text Mining." The study focuses on three aviation incidents, and the code for data collection, analysis, and presentation is shared here.
 
-
 ## Installation
 
-To install the required packages, run the following command:
+To install the required packages for this project, you can use the following pip command:
 
 ```bash
-pip install -r requirements.txt
+pip install pandas numpy scipy scikit-learn gensim matplotlib pyLDAvis jieba seaborn
+```
+
+For R packages, you can install them using the following R commands within your R or RStudio environment:
+
+```R
+install.packages("lsr")
+install.packages("ggpubr")
+install.packages("reshape2")
+```
+
+For the `selenium` package and its dependencies, you will also need to download the appropriate WebDriver for your browser. Here are the download links for the WebDrivers of some common browsers:
+
+- Chrome: [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
+- Firefox: [GeckoDriver](https://github.com/mozilla/geckodriver/releases)
+- Edge: [Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
+
+Please download the WebDriver that corresponds to your browser version and ensure it is in your system's PATH, or specify its location in your code.
+
+Note: The `lxml` and `csv` modules are part of Python's standard library and do not require separate installation. The `random` module is also part of the Python standard library.
 ```
 
 ## Usage
 
-1. **Data Processing:**
-   Run `data_process.py` to process and prepare the data.
+### Data Collection
 
-2. **Emotion Analysis:**
-   Use `emotion_analyze.py` and `emotion_calculator.py` for sentiment analysis.
+Before you can analyze the data, you need to collect the raw data using the following Python scripts:
 
-3. **LDA Topic Modeling:**
-   Run `conduct_lda_model.py` to perform LDA topic modeling.
+- `Little Red Book.py`: Scrapes raw data from the Little Red Book platform.
+- `microblog.py`: Scrapes raw data from the microblog platform.
+- `TikTok.py`: Scrapes raw data from the TikTok platform.
 
-4. **Visualization:**
-   Use `emotion_grained_research_result.py` to generate visualizations of emotional trends.
+To run these scripts, ensure you have the necessary dependencies installed as outlined in the Installation section, and that you have downloaded the appropriate WebDriver for your browser.
+
+### Data Processing and Analysis
+
+Once you have collected the data, you can proceed with data processing and analysis using the following scripts:
+
+- `data_process.py`: Conducts data cleaning and preprocessing, such as removing missing values and feature selection.
+- `emotion_analyze.py`: Performs sentiment polarity analysis based on emotional vocabulary.
+- `LDA_topic_model.py`: Performs LDA topic modeling on text, calculates the effectiveness of the topic model, and saves it.
+
+For detailed instructions on how to use each script, please refer to the comments within the individual scripts.
+
+### Visualization
+
+After processing and analyzing the data, you can visualize the results using:
+
+- `emotion_grained_research_result.py`: Processes fine-grained emotional analysis results and calculates scores for different emotional dimensions.
+- `code_wilcx2`: Uses the ggpubr package to plot violin diagrams, showing the distribution of different emotions between different groups.
+
+### Model Training and Evaluation
+
+For model training and evaluation, you can use:
+
+- `NaiveBayesClassifier.py`: Uses a Naive Bayes classifier for text classification, training, and prediction.
+- `conduct_lda_model.py`: Performs topic modeling using the LDA model, training, and saving the topic model.
+
 
 ## File Descriptions
 
